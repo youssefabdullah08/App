@@ -1,27 +1,14 @@
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [RouterLink,RouterLinkActive,RouterOutlet],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  res: any;
-  bool:boolean=true
-  constructor(private _DataService: DataService) {}
-  ngOnInit(): void {
-    this.getdata();
-  }
 
-  getdata(): void {
-    this._DataService.mainProducts().subscribe({
-      next: (res) => {
-        console.log(res);
-        this.res=res.data
-      },
-    });
-  }
 }
