@@ -1,14 +1,107 @@
-<section class="md:w-3/12 bg-blue-950 fixed top-0 left-0 h-full py-5">
-    <h1 class="text-4xl text-white text-center font-semibold font-mono">Food Dilevery</h1>
-<div class="text-white p-8 text-2xl py-8">
-    <ul class="flex flex-col gap-2 ">
-        <li routerLink="cate" routerLinkActive="bg-slate-50 text-slate-900 shadow-md"><i class="fa-solid fa-layer-group"></i> Category</li>
-        <li routerLink="product" routerLinkActive="bg-slate-50 text-slate-900 shadow-md"><i class="fa-solid fa-box"></i> product</li>
-        <li routerLink="order" routerLinkActive="bg-slate-50 text-slate-900 shadow-md"><i class="fa-solid fa-list-check"></i> order</li>
-        <li routerLink="user" routerLinkActive="bg-slate-50 text-slate-900 shadow-md"><i class="fa-regular fa-user"></i> user</li>
-     </ul>
+<app-navbar> </app-navbar>
+<div class="flex h-screen  gap-2 w-full bg-[#F9F5F3]">
+  <!-- Sidebar -->
+  <div class="w-10 bg-[#ff7961] flex flex-col items-center py-4 space-y-4 h-[40rem] static bottom-0 left-0 rounded-e-xl">
+    <div
+      class="w-8 h-8 bg-white/20 rounded-lg"
+      *ngFor="let _ of [1, 2, 3, 4, 5]"
+    ></div>
+    <div class="mt-auto w-8 h-8 bg-white/20 rounded-lg"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex-1 p-6  w-11/12 ms-auto">
+    <!-- Top Bar -->
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-2">
+          <i class="icon-building2 w-5 h-5"></i>
+          <span class="text-sm font-medium">2/3 Maximum Sessions</span>
+        </div>
+        <div class="flex items-center space-x-2">
+          <i class="icon-clock w-5 h-5"></i>
+          <span class="text-sm font-medium">20s Last Login</span>
+        </div>
+      </div>
+      <div>
+        <button
+          class="tab"
+          *ngFor="let tab of ['today', 'yesterday', 'lastweek']"
+        >
+          {{ tab.toUpperCase() }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+      <div *ngFor="let stat of stats" class="card hover:bg-[#ffe4e1] p-3 rounded-lg bg-white">
+        <div class="card-header pb-2">
+          <div class="card-title text-2xl font-bold">{{ stat.title }}</div>
+        </div>
+        <div class="card-content">
+          <p class="text-sm text-muted-foreground">{{ stat.description }}</p>
+          <span
+            class="text-xs"
+            [ngClass]="
+              stat.color === 'green' ? 'text-green-600' : 'text-red-600'
+            "
+            >{{ stat.change }}</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Grid -->
+     <div class="w-8/12">
+     <div class="ms-auto w-fit">
+      <button class="  px-5  py-2  rounded-full" routerLink="/list" routerLinkActive="bg-[#ff7961] text-white">list</button>
+      <button class="  px-3  py-2 rounded-full" routerLink="/graph" routerLinkActive="bg-[#ff7961] text-white">Graph</button>
+     </div>
+
+
+     </div>
+    <div class="flex  gap-3">
+      <!-- Stations List -->
+   <div class="w-9/12">
+    <router-outlet> </router-outlet>
+   </div>
+    
+
+      <!-- Right Side Stats -->
+      <div class="w-3/12 ms-auto  ">
+        <div class="card bg-white rounded-lg p-3 ">
+          <div class="card-header">
+            <div class="card-title">Hourly Sales</div>
+          </div>
+          <div class="card-content">
+            <div class="card flex justify-center">
+              <p-chart type="radar" [data]="data" [options]="options" />
+            </div>
+          </div>
+        </div>
+        <div class="card p-3 bg-white h-[12.5rem] overflow-y-scroll thin-orange-scrollbar">
+          <div class="card-header">
+            <div class="card-title text-center">Sales by Station</div>
+          </div>
+          <div class="card-content space-y-4 dest">
+            <div
+              *ngFor="let station of stations"
+              class="flex items-center justify-between "
+            >
+              <div class="flex items-center space-x-2">
+                <div
+                  class="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center"
+                >
+                  <i class="icon-building2 w-4 h-4"></i>
+                </div>
+                <span>Station Name</span>
+              </div>
+              <span>62.72 m²</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</section>
-<section class="md:w-9/12 ms-auto">
-<router-outlet></router-outlet>
-</section>

@@ -1,1 +1,54 @@
-<p>navbar works!</p>
+<nav class="w-full bg-white p-4 border-b">
+    <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+      
+      <!-- Monitoring Stations -->
+      <div class="flex items-center gap-2">
+        <i class="icon-monitor w-4 h-4 text-gray-500"></i>
+        <div class="flex items-baseline gap-1">
+          <span class="text-xl font-semibold">2</span>
+          <span class="text-gray-500">/</span>
+          <span class="text-gray-500">3</span>
+        </div>
+        <span class="text-xs text-gray-500">Monitoring Stations</span>
+      </div>
+  
+      <!-- Last Updated -->
+      <div class="flex items-center gap-2">
+        <i class="icon-clock w-4 h-4 text-gray-500"></i>
+        <span class="text-xl font-semibold">20s</span>
+        <span class="text-xs text-gray-500">Last Updated</span>
+      </div>
+  
+      <!-- Time Period Selector -->
+      <div class="flex items-center bg-gray-100 rounded-md p-1">
+        <button class="btn bg-orange-400 text-white hover:bg-orange-500">
+          TODAY
+        </button>
+        <button class="btn text-gray-500">
+          YESTERDAY
+        </button>
+        <button class="btn text-gray-500">
+          LAST WEEK
+        </button>
+      </div>
+  
+      <!-- Date Range Inputs -->
+      <div class="flex items-center gap-4 ml-auto">
+        <div class="flex items-center gap-2">
+          <input
+            type="text"
+            placeholder="Start date - time"
+            class="input w-[200px] text-sm"
+          />
+        </div>
+        <div class="flex items-center gap-2">
+          <input
+            type="text"
+            placeholder="End date - time"
+            class="input w-[200px] text-sm"
+          />
+        </div>
+      </div>
+    </div>
+</nav>
+  

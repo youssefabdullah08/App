@@ -1,0 +1,27 @@
+<div class="  h-[25rem] overflow-y-scroll w-full">
+  <div *ngFor="let station of stations" class="card">
+    <div class="card-content p-4 bg-white">
+      <div class="flex items-start justify-between">
+        <div class="flex items-start space-x-4">
+          <div
+            class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center"
+          >
+            <i class="icon-building2 w-6 h-6"></i>
+          </div>
+          <div>
+            <h3 class="font-semibold">STATION NAME</h3>
+            <div class="grid grid-cols-2 gap-x-8 gap-y-2 mt-2 text-sm">
+              <div>Total Sales: 62,721 m²</div>
+              <div>Compensation Rate: 20</div>
+              <div>Total Value: $50 EGP</div>
+              <div>Max Transaction Date/Time: 8-1-2020 10:36 PM</div>
+            </div>
+          </div>
+        </div>
+        <button class="btn btn-icon">
+          <i class="icon-more-vertical w-4 h-4"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

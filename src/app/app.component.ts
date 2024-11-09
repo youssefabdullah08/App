@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-root',
